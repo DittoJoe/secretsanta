@@ -1,2 +1,2 @@
 participants = %w[Dad Jenny Joe Katie Mum Sam]
-p participants
+p participants.sample
