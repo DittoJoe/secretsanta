@@ -1,10 +1,18 @@
 require 'sendgrid-ruby'
+require 'dotenv'
+Dotenv.load
 include SendGrid
 
-# emails = %w[rohdejenny@gmail.com joseph.jf.rohde@gmail.com kateinaus@gmail.com
-#             1989sam.r@gmail.com len.rohde@bt.com itsmechrisrohde@gmail.com]
-emails = []
-6.times { emails << "joseph.jf.rohde@gmail.com" }
+p ENV['SENDGRID_API_KEY']
+p ENV['EMAIL']
+
+emails = [ENV['EMAIL_JENNY'], ENV['EMAIL_JOE'], ENV['EMAIL_KATIE'],
+          ENV['EMAIL_SAM'], ENV['EMAIL_DAD'], ENV['EMAIL_MUM']]
+
+# emails = []
+# 6.times { emails << ENV['EMAIL_JOE'] }
+
+p emails
 
 givers = %w[Jenny Joe Katie Sam Dad Mum]
 givers2 = %w[Jenny Joe Katie Sam]
@@ -39,8 +47,8 @@ while i < givers.length
   # mail = Mail.new(from, subject, to, content)
   # sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
   # response = sg.client.mail._('send').post(request_body: mail.to_json)
-  puts emails[i]
-  puts "Hi #{givers[i]}! You're buying for #{takers[i]}#{" and #{takers2[i]}" if i < 4}. Love, Santa"
+  # puts emails[i]
+  # puts "Hi #{givers[i]}! You're buying for #{takers[i]}#{" and #{takers2[i]}" if i < 4}. Love, Santa"
   i +=1
 end
 
