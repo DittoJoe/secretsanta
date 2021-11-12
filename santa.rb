@@ -27,7 +27,7 @@ puts 'Names generated!'
 
 i = 0
 while i < givers.length
-  takers_string = "#{takers[i]}#{" and #{takers2[i]}" if i < 4}"
+  takers_string = "#{takers[i]}#{" and #{takers2[i]}" if i < partners.length}"
   from = Email.new(email: ENV['EMAIL_JOE'])
   to = Email.new(email: emails[i])
   subject = 'Secret Santa Names'
