@@ -16,14 +16,12 @@ def santa_shuffle(array)
   return result
 end
 
-emails = [ENV['EMAIL_JENNY'], ENV['EMAIL_JOE'], ENV['EMAIL_KATIE'],
-          ENV['EMAIL_SAM'], ENV['EMAIL_DAD'], ENV['EMAIL_MUM']]
+emails = [ENV['EMAIL_JENNY'], ENV['EMAIL_JOE'], ENV['EMAIL_KATIE'], ENV['EMAIL_SAM'], ENV['EMAIL_DAD'], ENV['EMAIL_MUM']]
 givers = %w[Jenny Joe Katie Sam Dad Mum]
 takers = santa_shuffle(givers)
 budget = 20
 # partners = %w[Daniel Viktor Rob Cat]
 # takers2 = santa_shuffle(partners)
-
 puts 'Names generated!'
 
 i = 0
@@ -44,5 +42,4 @@ Love, Santa")
   puts "Email sent to #{givers[i]}!" if response.status_code == '202'
   i +=1
 end
-
 puts 'Merry Christmas!'
