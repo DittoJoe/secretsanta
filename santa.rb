@@ -19,20 +19,25 @@ end
 emails = [ENV['EMAIL_JENNY'], ENV['EMAIL_JOE'], ENV['EMAIL_KATIE'],
           ENV['EMAIL_SAM'], ENV['EMAIL_DAD'], ENV['EMAIL_MUM']]
 givers = %w[Jenny Joe Katie Sam Dad Mum]
-partners = %w[Daniel Viktor Rob Cat]
 takers = santa_shuffle(givers)
-takers2 = santa_shuffle(partners)
+budget = 20
+# partners = %w[Daniel Viktor Rob Cat]
+# takers2 = santa_shuffle(partners)
 
 puts 'Names generated!'
 
 i = 0
 while i < givers.length
-  takers_string = "#{takers[i]}#{" and #{takers2[i]}" if i < partners.length}"
+  takers_string = "#{takers[i]}"
   from = Email.new(email: ENV['EMAIL_JOE'])
   to = Email.new(email: emails[i])
   subject = 'Secret Santa Names'
   content = Content.new(type: 'text/plain',
-                        value: "Hi #{givers[i]}! You're buying for #{takers_string}. Love, Santa")
+                        value: "Hi #{givers[i]}!
+
+This year you'll be buying #{takers_string} a gift for £#{budget} or less. Good luck!
+
+Love, Santa")
   mail = Mail.new(from, subject, to, content)
   sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
   response = sg.client.mail._('send').post(request_body: mail.to_json)
