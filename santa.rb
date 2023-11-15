@@ -33,7 +33,7 @@ while i < givers.length
   content = Content.new(type: 'text/plain',
                         value: "Hi #{givers[i]}!
 
-This year you'll be buying #{takers_string} a gift for £#{budget} or less. Good luck!
+This year you'll be buying #{takers_string} a gift for £#{budget} or less. Good luck and have fun!
 
 Love, Santa")
   mail = Mail.new(from, subject, to, content)
