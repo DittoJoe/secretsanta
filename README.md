@@ -1,6 +1,8 @@
 ## Secret Santa Name Generator
 
-Every year in my family, we like to do a Secret Santa gift exchange at Christmas. There are many services out there to help you generate names, but this year I decided to create my own. It generates two arrays: one for each of the main participants and another for 4 of the participants' partners. It then sends out an email to each of the participants informing them of the name(s) selected for them. The goal of this code was to ensure that noone ended up with their own name or that of their partner.
+Every year in my family, we like to do a Secret Santa gift exchange at Christmas. There are many services out there to help you generate names, but this year I decided to create my own. 
+
+It can generate up to two lists: one for each of the main participants and another for the participants' partners. It then sends out an email to each of the participants informing them of the name(s) selected for them. The goal of this code was to ensure that noone ended up with their own name or that of their partner.
 
 If you want to try out my script as intended, begin by cloning this repository.
 
