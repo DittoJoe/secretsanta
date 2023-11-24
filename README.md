@@ -1,28 +1,30 @@
 ## Secret Santa Name Generator
 
-Every year in my family, we like to do a Secret Santa gift exchange at Christmas. There are many services out there to help you generate names, but this year I decided to create my own. 
+Every year in my family, we like to do a Secret Santa gift exchange at Christmas. There are many services out there to help you generate names, but this year I decided to create my own. It will generate a hash mapping each participant to another with no one matched to themself. 
 
-It can generate up to two lists: one for each of the main participants and another for the participants' partners. It then sends out an email to each of the participants informing them of the name(s) selected for them. The goal of this code was to ensure that noone ended up with their own name or that of their partner.
+If you want to try out this script as intended, begin by cloning this repository.
 
-If you want to try out my script as intended, begin by cloning this repository.
+Open up __santa.rb__ and replace the names in the `giver` array with the names of the participants:
 
-Open up __santa.rb__ and replace the following variables with the names and emails of the participants:
+    givers = %w[JOHN JANE JACK]
 
-    emails = [ENV['EMAIL_JENNY'], ENV['EMAIL_JOE'], ENV['EMAIL_KATIE'],
-              ENV['EMAIL_SAM'], ENV['EMAIL_DAD'], ENV['EMAIL_MUM']]
-    givers = %w[Jenny Joe Katie Sam Dad Mum]
-    partners = %w[Daniel Viktor Rob Cat]
+To send emails, you will need a [Mailjet](https://www.mailjet.com/) API Key and Secret Key. Once generated, enter them in your `.env` file as `ENV["MJ_APIKEY_PUBLIC"]` and `ENV["MJ_APIKEY_PRIVATE"]` respectively. You will then need to ensure you have an email in the `.env` file for each of the participants.
 
-To send emails, you will need a [SendGrid API Key](http://www.sendgrid.com). Once generated, enter it as your `ENV['SENDGRID_API_KEY']`.
+Once done, your .env file should look something like this:
+
+    MJ_APIKEY_PUBLIC='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+    MJ_APIKEY_PRIVATE='xxxxxxxxxxxxxxxxxxxxxxxx'
+    EMAIL_JOHN='john.doe@gmail.com'
+    EMAIL_JANE='jane.doe@gmail.com'
+    EMAIL_JACK='jack.doe@gmail.com'
+
+_Note: Remember to add .env to your .gitignore file so that no personal data or private tokens are pushed to Github._
 
 Once set up, you can run the name generator with the following command:
 
-    $ ruby santa.rb
-    
-_Note: you might want to test it out with your own email first before spamming everyone else!_
+    $ ruby santa.rb    
 
 ## Further suggestions
 
-- If you're only doing one list, replace `#{takers_string}` with `#{takers[i]}`.
 - Since the loop is defined by the length of `givers`, you can add as many names as you want.
 - If you just want to see the arrays that were generated, you can comment out the final loop and `puts` them to the console.
