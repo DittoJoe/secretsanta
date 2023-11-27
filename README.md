@@ -1,6 +1,6 @@
 ## Secret Santa Name Generator
 
-Every year in my family, we like to do a Secret Santa gift exchange at Christmas. There are many services out there to help you generate names, but this year I decided to create my own. It will generate a hash mapping each participant to another with no one matched to themself. 
+I have a big family, so we like to do a Secret Santa gift exchange at Christmas. There are many services out there to help you generate names, but I decided to create my own using Ruby. It will generate a list of names and email each participant their name. In this way, the list is secret to everyone, even the one generating the list. 
 
 If you want to try out this script as intended, begin by cloning this repository.
 
@@ -18,13 +18,12 @@ Once done, your .env file should look something like this:
     EMAIL_JANE='jane.doe@gmail.com'
     EMAIL_JACK='jack.doe@gmail.com'
 
-_Note: Remember to add .env to your .gitignore file so that no personal data or private tokens are pushed to Github._
-
 Once set up, you can run the name generator with the following command:
 
     $ ruby santa.rb    
 
-## Further suggestions
+### Hints and tips
 
-- Since the loop is defined by the length of `givers`, you can add as many names as you want.
+- While testing, I would recommend replacing participants emails for your own to avoid spam.
+- Remember to add .env to your .gitignore file so that no personal data or private tokens are pushed to Github.
 - If you just want to see the arrays that were generated, you can comment out the final loop and `puts` them to the console.
